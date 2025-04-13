@@ -13,53 +13,41 @@
     <style>
         /* 共用樣式 */
         body { font-family: 'Noto Sans TC', 'Inter', sans-serif; }
-        .hero-bg { background-image: url('https://github.com/jayyang358297/Starsnews/blob/main/image/16_9%20%E6%96%B0%E6%98%9F%E7%8D%8E%E4%B8%BB%E8%A6%96%E8%A6%BA(%E7%B4%94%E5%9C%96)(%E5%AF%AC%E7%89%88).png?raw=true'); background-size: cover; background-position: center; background-repeat: no-repeat; }
-        .ceremony-bg { background-image: url('https://github.com/jayyang358297/Starsnews/blob/main/image/%E9%A0%92%E7%8D%8E%E5%85%B8%E7%A6%AE%E4%B8%BB%E8%A6%96%E8%A6%BA.jpg?raw=true'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 70vh; display: flex; align-items: center; justify-content: center; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        .countdown-item { background-color: #4A5568; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; min-width: 60px; text-align: center; }
-        .countdown-label { font-size: 0.75rem; color: #A0AEC0; margin-top: 0.25rem; }
-        .carousel-container { position: relative; overflow: hidden; border-radius: 0.5rem; background-color: #f7fafc; }
-        .carousel-image { width: 100%; height: auto; max-height: 350px; object-fit: cover; display: block; border-radius: 0.5rem; }
-        .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.4); color: white; border: none; padding: 0.5rem 0.75rem; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 1rem; line-height: 1; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
-        .carousel-button:hover { background-color: rgba(0, 0, 0, 0.6); }
-        .carousel-button.prev { left: 0.5rem; }
-        .carousel-button.next { right: 0.5rem; }
-        .footer-icon { background-color: #4A5568; color: #E2E8F0; border-radius: 50%; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
-        .footer-icon:hover { background-color: #718096; }
-        .nav-link.active { color: #D97706; font-weight: 600; }
+        .nav-link.active { color: #D97706; font-weight: 600; } /* Active 狀態在此頁面不使用 */
         .dropdown-menu { min-width: 10rem; }
         .submenu { min-width: 10rem; left: 100%; top: -0.25rem; margin-left: 0.25rem; }
         .group:hover > .dropdown-menu, .group:focus-within > .dropdown-menu { display: block; }
         .group .submenu-trigger:hover > .submenu, .group .submenu-trigger:focus-within > .submenu { display: block; }
-        .google-form-container { width: 100%; max-width: 40rem; margin: 2rem auto; }
-        .google-form-container iframe { width: 100%; height: 855px; border: 1px solid #ccc; display: block; }
+        .footer-icon { background-color: #4A5568; color: #E2E8F0; border-radius: 50%; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
+        .footer-icon:hover { background-color: #718096; }
         .winner-card { border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; background-color: white; margin-bottom: 2rem; }
         .winner-image-container { max-width: 300px; margin-left: auto; }
-        .faq-question { cursor: pointer; padding: 1rem; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.375rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.2s ease; }
-        .faq-question:hover { background-color: #f3f4f6; }
-        .faq-answer { padding: 1rem; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 0.375rem 0.375rem; background-color: white; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; max-height: 0; padding-top: 0; padding-bottom: 0; }
-        .faq-answer.open { max-height: 500px; padding-top: 1rem; padding-bottom: 1rem; }
-        .faq-icon { transition: transform 0.3s ease; }
-        .faq-question.open .faq-icon { transform: rotate(180deg); }
     </style>
 </head>
-<body class="bg-gray-50" data-current-page="home">
+<body class="bg-gray-50">
 
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap justify-between items-center">
-            <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center space-x-2 text-lg font-bold text-gray-800 mb-2 sm:mb-0"> <img src="https://github.com/jayyang358297/Starsnews/blob/main/image/%E6%96%B0%E6%98%9F%E7%8D%8ELOGO.png?raw=true" alt="Logo" class="h-8 w-8 rounded-full"> <span>政大新星獎</span> </a>
+            <a href="index.html" class="flex items-center space-x-2 text-lg font-bold text-gray-800 mb-2 sm:mb-0"> <img src="https://placehold.co/40x40/facc15/333333?text=Logo" alt="Logo" class="h-8 w-8 rounded-full"> <span>政大新星獎</span> </a>
             <div class="w-full sm:w-auto" id="navbar-links">
                  <ul class="flex flex-col sm:flex-row sm:items-center sm:space-x-1 space-y-2 sm:space-y-0 text-sm font-medium">
-                    <li><a href="javascript:void(0)" onclick="showPage('home')" data-page="home" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out active">首頁</a></li>
-                    <li><a href="javascript:void(0)" onclick="showPage('labor-award')" data-page="labor-award" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">勞動新聞獎</a></li>
-                    <li><a href="javascript:void(0)" onclick="showPage('ceremony-info')" data-page="ceremony-info" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">典禮資訊</a></li>
-                    <li class="relative group"> <button class="nav-link flex items-center px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out focus:outline-none"> 報名專區 <svg class="w-4 h-4 ml-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg> </button> <div class="dropdown-menu absolute z-10 mt-1 bg-white rounded-md shadow-lg hidden"> <div class="relative submenu-trigger"> <a href="#" class="flex justify-between items-center w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 hover:text-yellow-600"> 活動簡章 <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7.293 14.707L12.586 9.414 7.293 4.121 8.707 2.707 15.414 9.414 8.707 16.121z"/></svg> </a> <div class="submenu absolute z-20 mt-0 bg-white rounded-md shadow-lg hidden"> <a href="javascript:void(0)" onclick="showPage('brochure-hs')" data-page="brochure-hs" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">新星獎-高中部</a> <a href="javascript:void(0)" onclick="showPage('brochure-uni')" data-page="brochure-uni" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">新星獎-大學部</a> <a href="javascript:void(0)" onclick="showPage('brochure-labor')" data-page="brochure-labor" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">勞動新聞獎</a> </div> </div> <a href="javascript:void(0)" onclick="showPage('registration-process')" data-page="registration-process" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">報名流程</a> <a href="javascript:void(0)" onclick="showPage('submission-specs')" data-page="submission-specs" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">作品規格說明</a> </div> </li>
+                    <li><a href="index.html" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">首頁</a></li>
+                    <li><a href="index.html" onclick="sessionStorage.setItem('targetPage', 'labor-award');" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">勞動新聞獎</a></li>
+                    <li><a href="index.html" onclick="sessionStorage.setItem('targetPage', 'ceremony-info');" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">典禮資訊</a></li>
+                    <li class="relative group"> <button class="nav-link flex items-center px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out focus:outline-none"> 報名專區 <svg class="w-4 h-4 ml-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg> </button> <div class="dropdown-menu absolute z-10 mt-1 bg-white rounded-md shadow-lg hidden"> <div class="relative submenu-trigger"> <a href="#" class="flex justify-between items-center w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 hover:text-yellow-600"> 活動簡章 <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7.293 14.707L12.586 9.414 7.293 4.121 8.707 2.707 15.414 9.414 8.707 16.121z"/></svg> </a> <div class="submenu absolute z-20 mt-0 bg-white rounded-md shadow-lg hidden">
+                        <a href="index.html" onclick="sessionStorage.setItem('targetPage', 'brochure-hs');" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">新星獎-高中部</a>
+                        <a href="index.html" onclick="sessionStorage.setItem('targetPage', 'brochure-uni');" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">新星獎-大學部</a>
+                        <a href="index.html" onclick="sessionStorage.setItem('targetPage', 'brochure-labor');" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">勞動新聞獎</a>
+                    </div> </div>
+                    <a href="index.html" onclick="sessionStorage.setItem('targetPage', 'registration-process');" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">報名流程</a>
+                    <a href="index.html" onclick="sessionStorage.setItem('targetPage', 'submission-specs');" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">作品規格說明</a>
+                 </div> </li>
                     <li class="relative group"> <button class="nav-link flex items-center px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out focus:outline-none"> 歷屆得獎 <svg class="w-4 h-4 ml-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg> </button> <div class="dropdown-menu absolute z-10 mt-1 bg-white rounded-md shadow-lg hidden">
-                        <a href="past-winners-1.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">第一屆得獎作品</a>
-                        <a href="past-winners-2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">第二屆得獎作品</a>
+                        <a href="past-winners-1.html" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">第一屆得獎作品</a>
+                        <a href="past-winners-2.html" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">第二屆得獎作品</a>
                     </div> </li>
-                    <li><a href="javascript:void(0)" onclick="showPage('faq')" data-page="faq" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">常見問題</a></li>
-                    <li><a href="javascript:void(0)" onclick="showPage('about-us')" data-page="about-us" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">關於我們</a></li>
+                    <li><a href="index.html" onclick="sessionStorage.setItem('targetPage', 'faq');" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">常見問題</a></li>
+                    <li><a href="index.html" onclick="sessionStorage.setItem('targetPage', 'about-us');" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">關於我們</a></li>
                  </ul>
             </div>
              <button class="sm:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" id="mobile-menu-button"> <span class="sr-only">開啟主選單</span> <i class="fas fa-bars fa-lg"></i> </button>
@@ -70,42 +58,9 @@
         <div id="past-winners-1-page">
             <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">第一屆 新星獎得獎作品</h2>
-
                 <h3 class="text-2xl font-semibold text-gray-700 mb-6 border-b pb-2">平面新聞類</h3>
-                <div class="winner-card flex flex-col md:flex-row gap-6 items-start">
-                    <div class="flex-1">
-                        <h4 class="text-xl font-medium text-gray-800 mb-2">平面新聞報導獎</h4>
-                        <p class="text-lg font-semibold text-yellow-600 mb-2">特優：</p>
-                        <p class="mb-3 text-gray-700">【 高樓增加導致兒少自殺？專家盼從根本解決 / 蔡怡恆 】</p>
-                        <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4">
-                            兩段開題並分析資料的重點切入非常好，訪談對象的選擇也很全面。處理議題的方式很成熟。文字十分流暢。
-                            <span class="block text-sm text-gray-500 mt-1">— 節錄自評審評語</span>
-                        </blockquote>
-                        <a href="#" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition duration-200">
-                            閱讀全文
-                        </a>
-                    </div>
-                    <div class="winner-image-container flex-shrink-0 w-full md:w-auto">
-                         <img src="https://placehold.co/300x200/d1d5db/4b5563?text=[得獎作品圖片]" alt="[得獎作品圖片]" class="rounded-lg shadow-md w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://placehold.co/300x200/cccccc/999999?text=Image+Not+Found';">
-                    </div>
-                </div>
-                 <div class="winner-card flex flex-col md:flex-row gap-6 items-start">
-                    <div class="flex-1">
-                        <h4 class="text-xl font-medium text-gray-800 mb-2">新聞攝影獎</h4>
-                        <p class="text-lg font-semibold text-yellow-600 mb-2">優等：</p>
-                        <p class="mb-3 text-gray-700">【 作品標題 / 作者姓名 】</p>
-                        <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4">
-                            評審評語佔位文字...
-                            <span class="block text-sm text-gray-500 mt-1">— 節錄自評審評語</span>
-                        </blockquote>
-                        <a href="#" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition duration-200">
-                            閱讀全文
-                        </a>
-                    </div>
-                    <div class="winner-image-container flex-shrink-0 w-full md:w-auto">
-                         <img src="https://placehold.co/300x200/d1d5db/4b5563?text=[得獎作品圖片]" alt="[得獎作品圖片]" class="rounded-lg shadow-md w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://placehold.co/300x200/cccccc/999999?text=Image+Not+Found';">
-                    </div>
-                </div>
+                <div class="winner-card flex flex-col md:flex-row gap-6 items-start"> <div class="flex-1"> <h4 class="text-xl font-medium text-gray-800 mb-2">平面新聞報導獎</h4> <p class="text-lg font-semibold text-yellow-600 mb-2">特優：</p> <p class="mb-3 text-gray-700">【 高樓增加導致兒少自殺？專家盼從根本解決 / 蔡怡恆 】</p> <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4"> 兩段開題並分析資料的重點切入非常好，訪談對象的選擇也很全面。處理議題的方式很成熟。文字十分流暢。 <span class="block text-sm text-gray-500 mt-1">— 節錄自評審評語</span> </blockquote> <a href="#" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition duration-200"> 閱讀全文 </a> </div> <div class="winner-image-container flex-shrink-0 w-full md:w-auto"> <img src="https://placehold.co/300x200/d1d5db/4b5563?text=[得獎作品圖片]" alt="[得獎作品圖片]" class="rounded-lg shadow-md w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://placehold.co/300x200/cccccc/999999?text=Image+Not+Found';"> </div> </div>
+                <div class="winner-card flex flex-col md:flex-row gap-6 items-start"> <div class="flex-1"> <h4 class="text-xl font-medium text-gray-800 mb-2">新聞攝影獎</h4> <p class="text-lg font-semibold text-yellow-600 mb-2">優等：</p> <p class="mb-3 text-gray-700">【 作品標題 / 作者姓名 】</p> <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4"> 評審評語佔位文字... <span class="block text-sm text-gray-500 mt-1">— 節錄自評審評語</span> </blockquote> <a href="#" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition duration-200"> 閱讀全文 </a> </div> <div class="winner-image-container flex-shrink-0 w-full md:w-auto"> <img src="https://placehold.co/300x200/d1d5db/4b5563?text=[得獎作品圖片]" alt="[得獎作品圖片]" class="rounded-lg shadow-md w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://placehold.co/300x200/cccccc/999999?text=Image+Not+Found';"> </div> </div>
             </section>
         </div> </main>
 
@@ -124,6 +79,19 @@
                 navbarLinks.classList.toggle('flex');
             });
         }
+
+        // --- 從獨立檔案跳轉回 index.html 並顯示特定頁面 ---
+        // (此段 JS 放在 index.html 中，用於處理從外部連結跳轉)
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const targetPage = sessionStorage.getItem('targetPage');
+        //     if (targetPage) {
+        //         sessionStorage.removeItem('targetPage'); // 清除標記
+        //         showPage(targetPage); // 顯示目標頁面
+        //     } else {
+        //         showPage('home'); // 預設顯示首頁
+        //     }
+        //     // ... 其他初始化 ...
+        // });
     </script>
 
 </body>
