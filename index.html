@@ -29,19 +29,23 @@
         .footer-icon { background-color: #4A5568; color: #E2E8F0; border-radius: 50%; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
         .footer-icon:hover { background-color: #718096; }
         .nav-link.active { color: #D97706; font-weight: 600; }
+
         /* Dropdown styles */
         .dropdown-menu { min-width: 10rem; }
         .submenu { min-width: 10rem; left: 100%; top: -0.25rem; margin-left: 0.25rem; }
-        /* Show dropdown on hover/focus */
+        /* Show dropdown on hover/focus using Tailwind group utility */
         .group:hover > .dropdown-menu, .group:focus-within > .dropdown-menu { display: block; }
-        /* Show submenu on hover/focus */
+        /* Show submenu on hover/focus using Tailwind group utility */
         .group .submenu-trigger:hover > .submenu, .group .submenu-trigger:focus-within > .submenu { display: block; }
+
         /* Google Form container */
         .google-form-container { width: 100%; max-width: 40rem; margin: 2rem auto; }
         .google-form-container iframe { width: 100%; height: 855px; border: 1px solid #ccc; display: block; }
+
         /* Winner card (Example - if needed later) */
         .winner-card { border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; background-color: white; margin-bottom: 2rem; }
         .winner-image-container { max-width: 300px; margin-left: auto; }
+
         /* FAQ styles */
         .faq-question { cursor: pointer; padding: 1rem; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.375rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.2s ease; }
         .faq-question:hover { background-color: #f3f4f6; }
@@ -51,30 +55,24 @@
         .faq-question.open .faq-icon { transform: rotate(180deg); }
     </style>
 </head>
-<body class="bg-gray-50" data-current-page="home">
-
-    <header class="bg-white shadow-md sticky top-0 z-50">
+<body class="bg-gray-50" data-current-page="home"> <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap justify-between items-center">
             <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center space-x-2 text-lg font-bold text-gray-800 mb-2 sm:mb-0">
                 <img src="https://github.com/jayyang358297/starnews/blob/main/image/%E6%96%B0%E6%98%9F%E7%8D%8ELOGO.png?raw=true" alt="Logo" class="h-8 w-8 rounded-full" onerror="this.onerror=null; this.src='https://placehold.co/32x32/cccccc/999999?text=Logo';">
                 <span>政大新星獎</span>
             </a>
-            <div class="w-full sm:w-auto" id="navbar-links">
-                 <ul class="flex flex-col sm:flex-row sm:items-center sm:space-x-1 space-y-2 sm:space-y-0 text-sm font-medium">
+            <div class="w-full sm:w-auto hidden sm:flex" id="navbar-links"> <ul class="flex flex-col sm:flex-row sm:items-center sm:space-x-1 space-y-2 sm:space-y-0 text-sm font-medium">
                     <li><a href="javascript:void(0)" onclick="showPage('home')" data-page="home" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out active">首頁</a></li>
-                    <li><a href="javascript:void(0)" onclick="showPage('ceremony-info')" data-page="ceremony-info" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">典禮資訊</a></li>
                     <li class="relative group">
                         <button class="nav-link flex items-center px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out focus:outline-none">
                             報名專區
                             <svg class="w-4 h-4 ml-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                         </button>
-                        <div class="dropdown-menu absolute z-10 mt-1 bg-white rounded-md shadow-lg hidden">
-                            <div class="relative submenu-trigger">
-                                <a href="#" class="flex justify-between items-center w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 hover:text-yellow-600">
+                        <div class="dropdown-menu absolute z-10 mt-1 bg-white rounded-md shadow-lg hidden"> <div class="relative submenu-trigger group"> <a href="#" class="flex justify-between items-center w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 hover:text-yellow-600">
                                     活動簡章
-                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7.293 14.707L12.586 9.414 7.293 4.121 8.707 2.707 15.414 9.414 8.707 16.121z"/></svg> </a>
-                                <div class="submenu absolute z-20 mt-0 bg-white rounded-md shadow-lg hidden">
-                                    <a href="javascript:void(0)" onclick="showPage('brochure-hs')" data-page="brochure-hs" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">新星獎-高中部</a>
+                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7.293 14.707L12.586 9.414 7.293 4.121 8.707 2.707 15.414 9.414 8.707 16.121z"/></svg>
+                                </a>
+                                <div class="submenu absolute z-20 mt-0 bg-white rounded-md shadow-lg hidden"> <a href="javascript:void(0)" onclick="showPage('brochure-hs')" data-page="brochure-hs" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">新星獎-高中部</a>
                                     <a href="javascript:void(0)" onclick="showPage('brochure-uni')" data-page="brochure-uni" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">新星獎-大學部</a>
                                     <a href="javascript:void(0)" onclick="showPage('brochure-labor')" data-page="brochure-labor" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">勞動新聞獎</a>
                                 </div>
@@ -83,13 +81,13 @@
                             <a href="javascript:void(0)" onclick="showPage('submission-specs')" data-page="submission-specs" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">作品規格說明</a>
                         </div>
                     </li>
+                    <li><a href="javascript:void(0)" onclick="showPage('ceremony-info')" data-page="ceremony-info" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">典禮資訊</a></li>
                     <li class="relative group">
                         <button class="nav-link flex items-center px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out focus:outline-none">
                             歷屆得獎
                             <svg class="w-4 h-4 ml-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                         </button>
-                        <div class="dropdown-menu absolute z-10 mt-1 bg-white rounded-md shadow-lg hidden">
-                            <a href="past-winners-1.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">第一屆得獎作品</a>
+                        <div class="dropdown-menu absolute z-10 mt-1 bg-white rounded-md shadow-lg hidden"> <a href="past-winners-1.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">第一屆得獎作品</a>
                             <a href="past-winners-2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-yellow-600">第二屆得獎作品</a>
                         </div>
                     </li>
@@ -97,7 +95,7 @@
                     <li><a href="javascript:void(0)" onclick="showPage('about-us')" data-page="about-us" class="nav-link block px-3 py-2 text-gray-700 hover:text-yellow-500 rounded-md transition duration-200 ease-in-out">關於我們</a></li>
                 </ul>
             </div>
-            <button class="sm:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500" id="mobile-menu-button">
+            <button class="sm:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500" id="mobile-menu-button" aria-label="開啟主選單">
                 <span class="sr-only">開啟主選單</span>
                 <i class="fas fa-bars fa-lg"></i>
             </button>
@@ -105,10 +103,8 @@
     </header>
 
     <main>
-        <div id="home-page" class="page-content">
-            <section class="hero-bg text-white relative">
-                <div class="absolute inset-0 bg-black opacity-40"></div>
-                <div class="container mx-auto px-6 py-24 sm:py-32 lg:py-40 relative z-10 text-center">
+        <div id="home-page" class="page-content"> <section class="hero-bg text-white relative">
+                <div class="absolute inset-0 bg-black opacity-40"></div> <div class="container mx-auto px-6 py-24 sm:py-32 lg:py-40 relative z-10 text-center">
                     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">政大新星獎暨勞動新聞獎</h1>
                     <p class="text-lg sm:text-xl lg:text-2xl text-gray-200">Rising Star Award and Labor News Award</p>
                 </div>
@@ -170,476 +166,464 @@
             </section>
 
             <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <h2 class="text-3xl font-bold text-left text-gray-800 mb-10">勞動新聞獎</h2>
-                <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">獎項宗旨</h3>
-                        <div class="prose max-w-none text-gray-600">
-                            <p>旨在鼓勵學生關懷勞動議題、深入採訪報導，提升社會對勞動權益的關注。</p>
-                            <p>透過此獎項，希望能發掘更多優秀的校園記者，為勞動者發聲，促進更公平、友善的勞動環境。</p>
-                            <ul>
-                                <li>強調勞動議題的重要性。</li>
-                                <li>鼓勵深度、多元的報導形式。</li>
-                                <li>提升學生對社會議題的關懷與實踐力。</li>
-                            </ul>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center lg:text-left">勞動新聞獎宗旨</h2>
+                        <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                            <div class="prose max-w-none text-gray-600"> <p>旨在鼓勵學生關懷勞動議題、深入採訪報導，提升社會對勞動權益的關注。</p>
+                                <p>透過此獎項，希望能發掘更多優秀的校園記者，為勞動者發聲，促進更公平、友善的勞動環境。</p>
+                                <ul>
+                                    <li>強調勞動議題的重要性。</li>
+                                    <li>鼓勵深度、多元的報導形式。</li>
+                                    <li>提升學生對社會議題的關懷與實踐力。</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-12"> <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">紀念 黃越欽先生</h3>
-                        <div class="md:flex md:items-start md:space-x-8">
-                            <div class="md:w-1/3 mb-6 md:mb-0 text-center">
-                                 <img src="https://github.com/jayyang358297/starnews/blob/main/image/images%20(8).jpg?raw=true" alt="[黃越欽法官照片]" class="rounded-lg shadow-md w-full h-auto object-cover mx-auto max-w-[200px]" onerror="this.onerror=null; this.src='https://placehold.co/200x250/cccccc/999999?text=Image+Not+Found';">
-                            </div>
-                            <div class="md:w-2/3 prose max-w-none text-gray-600">
-                                <p>黃越欽先生（1941年－2008年），台灣著名法學家，長期致力於勞動法、社會法領域的研究與推動，對台灣勞動權益的發展有著卓越貢獻。</p>
-                                <p>他曾任政治大學法律系教授、司法院大法官，其著作與見解影響深遠。為紀念黃越欽先生對勞動法學的畢生奉獻，特設立此獎項，傳承其關懷勞動者、追求社會正義的精神。</p>
-                                <blockquote>
-                                    <p>"彰顯勞動法研究對台灣勞動權的意義與重要性"</p>
-                                </blockquote>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-center lg:text-left text-gray-800 mb-8">紀念 黃越欽先生</h2>
+                        <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                             <div class="md:flex md:items-start md:space-x-8">
+                                <div class="md:w-1/3 mb-6 md:mb-0 text-center">
+                                    <img src="https://github.com/jayyang358297/starnews/blob/main/image/images%20(8).jpg?raw=true" alt="[黃越欽法官照片]" class="rounded-lg shadow-md w-full h-auto object-cover mx-auto max-w-[200px]" onerror="this.onerror=null; this.src='https://placehold.co/200x250/cccccc/999999?text=Image+Not+Found';">
+                                </div>
+                                <div class="md:w-2/3 prose max-w-none text-gray-600"> <p>黃越欽先生（1941年－2008年），台灣著名法學家，長期致力於勞動法、社會法領域的研究與推動，對台灣勞動權益的發展有著卓越貢獻。</p>
+                                    <blockquote>
+                                        <p>"彰顯勞動法研究對台灣勞動權的意義與重要性"</p>
+                                    </blockquote>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
 
-        <div id="ceremony-info-page" class="page-content hidden">
-             <section class="ceremony-bg text-white relative">
-                <div class="absolute inset-0 bg-black opacity-50"></div>
-                <div class="relative z-10 text-center p-8">
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">頒獎典禮</h2>
-                    <p class="text-xl sm:text-2xl mt-4">相關資訊 即將公布</p>
-                    <p class="text-lg mt-2">敬請期待</p>
-                </div>
-            </section>
+        <div id="ceremony-info-page" class="page-content hidden"> <section class="ceremony-bg text-white relative">
+                 <div class="absolute inset-0 bg-black opacity-50"></div> <div class="relative z-10 text-center p-8">
+                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">頒獎典禮</h2>
+                     <p class="text-xl sm:text-2xl mt-4">相關資訊 即將公布</p>
+                     <p class="text-lg mt-2">敬請期待</p>
+                 </div>
+             </section>
         </div>
 
-        <div id="brochure-hs-page" class="page-content hidden">
-          <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg">
-                    <h2>政大新星獎 - 高中部 活動簡章</h2>
+        <div id="brochure-hs-page" class="page-content hidden"> <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg"> <h2>政大新星獎 - 高中部 活動簡章</h2>
 
-                    <h3>參賽資格</h3>
-                    <h4>一、參賽資格</h4>
-                    <p>全台高中職學生（含應屆畢業生）。</p>
-                    <h4>二、參賽作品</h4>
-                    <p>由學生高中在學時期所製作之作品，並檢附指導老師簽章推薦。</p>
+                  <h3>參賽資格</h3>
+                  <h4>一、參賽資格</h4>
+                  <p>全台高中職學生（含應屆畢業生）。</p>
+                  <h4>二、參賽作品</h4>
+                  <p>由學生高中在學時期所製作之作品，並檢附指導老師簽章推薦。</p>
 
-                    <h3>徵件類別</h3>
-                    <h4>一、平面新聞類</h4>
-                    <h5>平面純淨新聞獎 <span class="text-sm font-normal text-gray-500">（同一參賽作品限純淨新聞或專題新聞擇一投件）</span></h5>
-                    <ul>
-                        <li>作品內容須包含新聞標題及新聞圖片，單篇字數內容500～1500字，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
-                        <li>若為團體作品，僅需一人代表填寫，同一作者可報名一件以上不同作品。</li>
-                    </ul>
-                    <h5>平面專題新聞獎</h5>
-                    <ul>
-                        <li>作品內容須包含新聞標題及新聞圖片，總字數內容1500字以上，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
-                        <li>可由兩篇以上之平面新聞組合成其專題，各篇新聞皆須符合專題主旨。</li>
-                        <li>若為團體作品，僅需一人代表填寫，同一作者可報名一件以上不同作品。</li>
-                    </ul>
+                  <h3>徵件類別</h3>
+                  <h4>一、平面新聞類</h4>
+                  <h5>平面純淨新聞獎 <span class="text-sm font-normal text-gray-500">（同一參賽作品限純淨新聞或專題新聞擇一投件）</span></h5>
+                  <ul>
+                      <li>作品內容須包含新聞標題及新聞圖片，單篇字數內容500～1500字，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
+                      <li>若為團體作品，僅需一人代表填寫，同一作者可報名一件以上不同作品。</li>
+                  </ul>
+                  <h5>平面專題新聞獎</h5>
+                  <ul>
+                      <li>作品內容須包含新聞標題及新聞圖片，總字數內容1500字以上，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
+                      <li>可由兩篇以上之平面新聞組合成其專題，各篇新聞皆須符合專題主旨。</li>
+                      <li>若為團體作品，僅需一人代表填寫，同一作者可報名一件以上不同作品。</li>
+                  </ul>
 
-                    <h4>二、新聞攝影類</h4>
-                    <ul>
-                        <li>紀錄同一新聞事件之一至三張系列照片。</li>
-                        <li>報名時須繳交攝影作品簡述說明（500字以內）。</li>
-                        <li>除肖像類或藝術與娛樂新聞類之外，攝影者不可介入新聞事件、安排、導演作品。</li>
-                        <li>新聞攝影獎以事件或議題為主，限個人參賽。</li>
-                        <li>同一作者投稿件數上限為兩件。</li>
-                    </ul>
+                  <h4>二、新聞攝影類</h4>
+                  <ul>
+                      <li>紀錄同一新聞事件之一至三張系列照片。</li>
+                      <li>報名時須繳交攝影作品簡述說明（500字以內）。</li>
+                      <li>除肖像類或藝術與娛樂新聞類之外，攝影者不可介入新聞事件、安排、導演作品。</li>
+                      <li>新聞攝影獎以事件或議題為主，限個人參賽。</li>
+                      <li>同一作者投稿件數上限為兩件。</li>
+                  </ul>
 
-                    <h3>報名與繳件規格</h3>
-                    <h4>一、收件日期</h4>
-                    <p>2025年7月1日至31日，以報名系統收到時間為準。</p>
-                    <h4>二、報名方式</h4>
-                    <p>線上報名（請至報名流程頁面），主辦單位將於三個工作天內，以電子郵件回覆報名結果，請勿於此期間內重複來信，以免造成作業延誤。若未收到回覆郵件，請主動來信洽詢。</p>
-                    <h4>三、繳件規格</h4>
-                    <p>請參考作品規格說明頁面</p>
-                    <h4>四、繳交文件</h4>
-                    <ul>
-                        <li>報名表。</li>
-                        <li>學生證影本。</li>
-                        <li>參賽作品檔案。</li>
-                    </ul>
-                    <h4>五、結果公布日期</h4>
-                    <p>得獎名單將於2025年9月1日公布，屆時將同步於「政大新聞系學會 Facebook 粉絲專頁」及「政大新星獎官網」揭曉，並以電子郵件個別通知得獎者，邀請前往國立政治大學參與頒獎典禮。</p>
+                  <h3>報名與繳件規格</h3>
+                  <h4>一、收件日期</h4>
+                  <p>2025年7月1日至31日，以報名系統收到時間為準。</p>
+                  <h4>二、報名方式</h4>
+                  <p>線上報名（請至報名流程頁面），主辦單位將於三個工作天內，以電子郵件回覆報名結果，請勿於此期間內重複來信，以免造成作業延誤。若未收到回覆郵件，請主動來信洽詢。</p>
+                  <h4>三、繳件規格</h4>
+                  <p>請參考作品規格說明頁面</p>
+                  <h4>四、繳交文件</h4>
+                  <ul>
+                      <li>報名表。</li>
+                      <li>學生證影本。</li>
+                      <li>參賽作品檔案。</li>
+                  </ul>
+                  <h4>五、結果公布日期</h4>
+                  <p>得獎名單將於2025年9月1日公布，屆時將同步於「政大新聞系學會 Facebook 粉絲專頁」及「政大新星獎官網」揭曉，並以電子郵件個別通知得獎者，邀請前往國立政治大學參與頒獎典禮。</p>
 
+                  <h3>評審機制</h3>
+                  <p>由主辦單位邀請新聞傳播專業人士擔任評審，選出優勝者。</p>
 
-                    <h3>評審機制</h3>
-                    <p>由主辦單位邀請新聞傳播專業人士擔任評審，選出優勝者。</p>
+                  <h3>獎項內容</h3>
+                  <h4>一、平面新聞類</h4>
+                  <ul>
+                      <li><strong>平面純淨新聞獎：</strong>特優1名，獎金新台幣1500元及獎狀一紙；優等1名，獎金新台幣500元及獎狀一紙。</li>
+                      <li><strong>平面專題新聞獎：</strong>特優1名，獎金新台幣2500元及獎狀一紙；優等1名，獎金新台幣1500元及獎狀一紙。</li>
+                  </ul>
+                  <h4>二、新聞攝影類</h4>
+                  <ul>
+                      <li>特優1名，獎金新台幣1500元及獎狀一紙；優等1名，獎金新台幣500元及獎狀一紙。</li>
+                  </ul>
+                   <h4>三、潛力新星獎</h4>
+                  <ul>
+                      <li>由評審團及主辦單位共同評選出當屆特殊且值得鼓勵之作品，該獎項過三分之二以上評審同意，另行授獎，得獎者可獲得獎金新台幣1000元。</li>
+                  </ul>
 
+                  <h3>注意事項</h3>
+                  <ol>
+                      <li>社會各界對獲獎作品有疑義時，得檢具相關資料向主辦單位提出。</li>
+                      <li>報名之作品，若有捏造、抄襲、非自行製作或新聞置入等情事，且經查證屬實者，剝奪參賽資格，如有得獎則主辦單位將取消得獎資格，並收回獎狀及獎金。</li>
+                      <li>參加競選的作品及所附資料，無論得獎與否，均不退回。</li>
+                      <li>得獎作品應授權主辦單位無償非商業使用與永久典藏。</li>
+                      <li>得獎者應配合主辦單位舉辦之頒獎活動。</li>
+                      <li>主辦單位對以上辦法保有最終解釋權。</li>
+                  </ol>
 
-                    <h3>獎項內容</h3>
-                    <h4>一、平面新聞類</h4>
-                    <ul>
-                        <li><strong>平面純淨新聞獎：</strong>特優1名，獎金新台幣1500元及獎狀一紙；優等1名，獎金新台幣500元及獎狀一紙。</li>
-                        <li><strong>平面專題新聞獎：</strong>特優1名，獎金新台幣2500元及獎狀一紙；優等1名，獎金新台幣1500元及獎狀一紙。</li>
-                    </ul>
-                    <h4>二、新聞攝影類</h4>
-                    <ul>
-                        <li>特優1名，獎金新台幣1500元及獎狀一紙；優等1名，獎金新台幣500元及獎狀一紙。</li>
-                    </ul>
-                     <h4>三、潛力新星獎</h4>
-                    <ul>
-                        <li>由評審團及主辦單位共同評選出當屆特殊且值得鼓勵之作品，該獎項過三分之二以上評審同意，另行授獎，得獎者可獲得獎金新台幣1000元。</li>
-                    </ul>
-
-                    <h3>注意事項</h3>
-                    <ol>
-                        <li>社會各界對獲獎作品有疑義時，得檢具相關資料向主辦單位提出。</li>
-                        <li>報名之作品，若有捏造、抄襲、非自行製作或新聞置入等情事，且經查證屬實者，剝奪參賽資格，如有得獎則主辦單位將取消得獎資格，並收回獎狀及獎金。</li>
-                        <li>參加競選的作品及所附資料，無論得獎與否，均不退回。</li>
-                        <li>得獎作品應授權主辦單位無償非商業使用與永久典藏。</li>
-                        <li>得獎者應配合主辦單位舉辦之頒獎活動。</li>
-                        <li>主辦單位對以上辦法保有最終解釋權。</li>
-                    </ol>
-
-                    <h3>聯絡窗口</h3>
-                    <p>若對活動辦法有疑義，請洽政大新星獎官網或來信 <a href="mailto:nccunewssa@gmail.com">nccunewssa@gmail.com</a> ，亦可搜尋「政大新聞系學會 Facebook 粉絲專頁」洽詢。</p>
-                </article>
-            </section>
+                  <h3>聯絡窗口</h3>
+                  <p>若對活動辦法有疑義，請洽政大新星獎官網或來信 <a href="mailto:nccunewssa@gmail.com">nccunewssa@gmail.com</a> ，亦可搜尋「政大新聞系學會 Facebook 粉絲專頁」洽詢。</p>
+              </article>
+          </section>
         </div>
 
-        <div id="brochure-uni-page" class="page-content hidden">
-             <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg">
-                    <h2>政大新星獎 - 大學部 活動簡章</h2>
+        <div id="brochure-uni-page" class="page-content hidden"> <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                 <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg">
+                     <h2>政大新星獎 - 大學部 活動簡章</h2>
 
-                    <h3>參賽資格</h3>
-                    <h4>一、參賽資格</h4>
-                    <p>國立政治大學學士班大一、大二學生，不限科系。</p>
-                    <h4>二、參賽作品</h4>
-                    <p>於一學年內（2024/03/16～2025/06/30）由學生在學時期所製作的作品。</p>
+                     <h3>參賽資格</h3>
+                     <h4>一、參賽資格</h4>
+                     <p>國立政治大學學士班大一、大二學生，不限科系。</p>
+                     <h4>二、參賽作品</h4>
+                     <p>於一學年內（2024/03/16～2025/06/30）由學生在學時期所製作的作品。</p>
 
-                    <h3>徵件類別</h3>
-                    <h4>一、平面新聞類 <span class="text-sm font-normal text-gray-500">（同一參賽作品限純淨新聞或專題新聞擇一投件）</span></h4>
-                    <h5>平面純淨新聞獎</h5>
-                    <ul>
-                        <li>作品內容須包含新聞標題及新聞圖片，單篇字數內容800～1500字，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
-                        <li>若為團體作品，僅需一人代表填寫，同一作者可報名一件以上不同作品。</li>
-                    </ul>
-                    <h5>平面專題新聞獎</h5>
-                    <ul>
-                        <li>作品內容須包含新聞標題及新聞圖片，總字數內容3500字以上，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
-                        <li>可由兩篇以上之平面新聞組合成其專題，各篇新聞皆須符合專題主旨。</li>
-                        <li>若為團體作品，僅需一人代表填寫，同一作者可報名一件以上不同作品。</li>
-                    </ul>
-
-                    <h4>二、新聞攝影類</h4>
+                     <h3>徵件類別</h3>
+                     <h4>一、平面新聞類 <span class="text-sm font-normal text-gray-500">（同一參賽作品限純淨新聞或專題新聞擇一投件）</span></h4>
+                     <h5>平面純淨新聞獎</h5>
                      <ul>
-                        <li>紀錄同一新聞事件之一至三張系列照片。</li>
-                        <li>報名時須繳交攝影作品簡述說明（500字以內）。</li>
-                        <li>除肖像類或藝術與娛樂新聞類之外，攝影者不可介入新聞事件、安排、導演作品。</li>
-                        <li>新聞攝影獎以事件或議題為主，限個人參賽。</li>
-                        <li>同一作者投稿件數上限為兩件。</li>
-                    </ul>
+                         <li>作品內容須包含新聞標題及新聞圖片，單篇字數內容800～1500字，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
+                         <li>若為團體作品，僅需一人代表填寫，同一作者可報名一件以上不同作品。</li>
+                     </ul>
+                     <h5>平面專題新聞獎</h5>
+                     <ul>
+                         <li>作品內容須包含新聞標題及新聞圖片，總字數內容3500字以上，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
+                         <li>可由兩篇以上之平面新聞組合成其專題，各篇新聞皆須符合專題主旨。</li>
+                         <li>若為團體作品，僅需一人代表填寫，同一作者可報名一件以上不同作品。</li>
+                     </ul>
 
-                    <h3>報名與繳件規格</h3>
-                    <h4>一、收件日期</h4>
-                    <p>2025年7月1日至31日，以報名系統收到時間為準。</p>
-                    <h4>二、報名方式</h4>
-                    <p>線上報名（請至報名流程頁面）。主辦單位將於三個工作天內，以電子郵件回覆報名結果，請勿於此期間內重複來信，以免造成作業延誤。若未收到回覆郵件，請主動來信洽詢。</p>
-                    <h4>三、繳件規格</h4>
-                    <p>請參考作品規格說明頁面</p>
-                    <h4>四、繳交文件</h4>
-                    <ul>
-                        <li>報名表。</li>
-                        <li>學生證影本。</li>
-                        <li>參賽作品檔案。</li>
-                    </ul>
-                    <h4>五、結果公布日期</h4>
-                    <p>得獎名單將於2025年9月1日公布，屆時將同步於「政大新聞系學會 Facebook 粉絲專頁」及「政大新星獎官網」揭曉，並以電子郵件個別通知得獎者，邀請前往國立政治大學參與頒獎典禮。</p>
+                     <h4>二、新聞攝影類</h4>
+                      <ul>
+                         <li>紀錄同一新聞事件之一至三張系列照片。</li>
+                         <li>報名時須繳交攝影作品簡述說明（500字以內）。</li>
+                         <li>除肖像類或藝術與娛樂新聞類之外，攝影者不可介入新聞事件、安排、導演作品。</li>
+                         <li>新聞攝影獎以事件或議題為主，限個人參賽。</li>
+                         <li>同一作者投稿件數上限為兩件。</li>
+                     </ul>
 
-                    <h3>評審機制</h3>
-                    <p>由主辦單位邀請新聞傳播專業人士擔任評審，選出優勝者。</p>
-
-                    <h3>獎項內容</h3>
-                    <h4>一、平面新聞類</h4>
-                    <ul>
-                        <li><strong>平面純淨新聞獎：</strong>特優1名，獎金新台幣2500元及獎狀一紙；優等1名，獎金新台幣1500元及獎狀一紙。</li>
-                        <li><strong>平面專題新聞獎：</strong>特優1名，獎金新台幣3500元及獎狀一紙；優等1名，獎金新台幣2500元及獎狀一紙。</li>
-                    </ul>
-                    <h4>二、新聞攝影類</h4>
-                    <ul>
-                        <li>特優1名，獎金新台幣2500元及獎狀一紙；優等1名，獎金新台幣1500元及獎狀一紙。</li>
-                    </ul>
-                    <h4>三、潛力新星獎</h4>
-                    <ul>
-                        <li>由評審團及主辦單位共同評選出當屆特殊且值得鼓勵之作品，該獎項過三分之二以上評審同意，另行授獎，得獎者可獲得獎金新台幣1000元。</li>
-                    </ul>
-
-                    <h3>注意事項</h3>
-                    <ol>
-                        <li>社會各界對獲獎作品有疑義時，得檢具相關資料向主辦單位提出。</li>
-                        <li>報名之作品，若有捏造、抄襲、非自行製作或新聞置入等情事，且經查證屬實者，剝奪參賽資格，如有得獎則主辦單位將取消得獎資格，並收回獎狀及獎金。</li>
-                        <li>參加競選的作品及所附資料，無論得獎與否，均不退回。</li>
-                        <li>得獎作品應授權主辦單位無償非商業使用與永久典藏。</li>
-                        <li>得獎者應配合主辦單位舉辦之頒獎活動。</li>
-                        <li>主辦單位對以上辦法保有最終解釋權。</li>
-                    </ol>
-
-                    <h3>聯絡窗口</h3>
-                    <p>若對活動辦法有疑義，請洽政大新星獎官網或來信 <a href="mailto:nccunewssa@gmail.com">nccunewssa@gmail.com</a> ，亦可搜尋「政大新聞系學會 Facebook 粉絲專頁」洽詢。</p>
-                </article>
-            </section>
-        </div>
-
-        <div id="brochure-labor-page" class="page-content hidden">
-             <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg">
-                    <h2>黃越欽大法官勞動新聞獎 活動簡章</h2>
-
-                    <h3>參賽資格</h3>
-                    <p>本校大學部學生，或以本系專任教師為論文指導教授之碩士班在學學生。參賽作品主題應與勞動議題相關，並為申請人於本校就讀期間完成，申請時該作品未獲其他獎助金。</p>
-
-                    <h3>徵件類別</h3>
-                    <h4>一、平面新聞獎</h4>
-                    <ul>
-                        <li>作品內容須包含新聞標題及新聞圖片，總字數內容3000字以上，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
-                    </ul>
-                    <h4>二、影音新聞獎</h4>
-                    <ul>
-                        <li>影片總時間長度3至10分鐘。</li>
-                    </ul>
-                    <h4>三、融媒體新聞獎</h4>
-                    <ul>
-                        <li>以單一事件或專題之新聞報導為主題。</li>
-                        <li>將音檔、影片、文字或圖表等不同元素整合之新型態的媒體作品。</li>
-                        <li>作品可發表於網站、App或應用程式等。</li>
-                    </ul>
-
-                    <h3>報名與繳件規格</h3>
-                    <h4>一、收件日期</h4>
-                    <p>2025年7月1日至31日，以報名系統收到時間為準。</p>
-                    <h4>二、報名方式</h4>
-                    <p>線上報名（請至報名流程頁面）。主辦單位將於三個工作天內，以電子郵件回覆報名結果，請勿於此期間內重複來信，以免造成作業延誤。若未收到回覆郵件，請主動來信洽詢。</p>
-                    <h4>三、繳件規格</h4>
-                    <p>請參考作品規格說明頁面</p>
-                    <h4>四、繳交文件</h4>
-                    <ul>
-                        <li>報名表。</li>
-                        <li>學生證影本。</li>
-                        <li>作品檔案。</li>
-                    </ul>
+                     <h3>報名與繳件規格</h3>
+                     <h4>一、收件日期</h4>
+                     <p>2025年7月1日至31日，以報名系統收到時間為準。</p>
+                     <h4>二、報名方式</h4>
+                     <p>線上報名（請至報名流程頁面）。主辦單位將於三個工作天內，以電子郵件回覆報名結果，請勿於此期間內重複來信，以免造成作業延誤。若未收到回覆郵件，請主動來信洽詢。</p>
+                     <h4>三、繳件規格</h4>
+                     <p>請參考作品規格說明頁面</p>
+                     <h4>四、繳交文件</h4>
+                     <ul>
+                         <li>報名表。</li>
+                         <li>學生證影本。</li>
+                         <li>參賽作品檔案。</li>
+                     </ul>
                      <h4>五、結果公布日期</h4>
-                    <p>得獎名單將於2025年9月1日公布，屆時將同步於「政大新聞系學會 Facebook 粉絲專頁」及「政大新星獎官網」揭曉，並以電子郵件個別通知得獎者，邀請前往國立政治大學參與頒獎典禮。</p>
+                     <p>得獎名單將於2025年9月1日公布，屆時將同步於「政大新聞系學會 Facebook 粉絲專頁」及「政大新星獎官網」揭曉，並以電子郵件個別通知得獎者，邀請前往國立政治大學參與頒獎典禮。</p>
 
-                    <h3>評審機制</h3>
-                    <p>由主辦單位邀請新聞傳播專業人士擔任評審，選出優勝者。</p>
+                     <h3>評審機制</h3>
+                     <p>由主辦單位邀請新聞傳播專業人士擔任評審，選出優勝者。</p>
 
-                    <h3>獎項內容</h3>
+                     <h3>獎項內容</h3>
+                     <h4>一、平面新聞類</h4>
+                     <ul>
+                         <li><strong>平面純淨新聞獎：</strong>特優1名，獎金新台幣2500元及獎狀一紙；優等1名，獎金新台幣1500元及獎狀一紙。</li>
+                         <li><strong>平面專題新聞獎：</strong>特優1名，獎金新台幣3500元及獎狀一紙；優等1名，獎金新台幣2500元及獎狀一紙。</li>
+                     </ul>
+                     <h4>二、新聞攝影類</h4>
+                     <ul>
+                         <li>特優1名，獎金新台幣2500元及獎狀一紙；優等1名，獎金新台幣1500元及獎狀一紙。</li>
+                     </ul>
+                     <h4>三、潛力新星獎</h4>
+                     <ul>
+                         <li>由評審團及主辦單位共同評選出當屆特殊且值得鼓勵之作品，該獎項過三分之二以上評審同意，另行授獎，得獎者可獲得獎金新台幣1000元。</li>
+                     </ul>
+
+                     <h3>注意事項</h3>
+                     <ol>
+                         <li>社會各界對獲獎作品有疑義時，得檢具相關資料向主辦單位提出。</li>
+                         <li>報名之作品，若有捏造、抄襲、非自行製作或新聞置入等情事，且經查證屬實者，剝奪參賽資格，如有得獎則主辦單位將取消得獎資格，並收回獎狀及獎金。</li>
+                         <li>參加競選的作品及所附資料，無論得獎與否，均不退回。</li>
+                         <li>得獎作品應授權主辦單位無償非商業使用與永久典藏。</li>
+                         <li>得獎者應配合主辦單位舉辦之頒獎活動。</li>
+                         <li>主辦單位對以上辦法保有最終解釋權。</li>
+                     </ol>
+
+                     <h3>聯絡窗口</h3>
+                     <p>若對活動辦法有疑義，請洽政大新星獎官網或來信 <a href="mailto:nccunewssa@gmail.com">nccunewssa@gmail.com</a> ，亦可搜尋「政大新聞系學會 Facebook 粉絲專頁」洽詢。</p>
+                 </article>
+             </section>
+        </div>
+
+        <div id="brochure-labor-page" class="page-content hidden"> <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                 <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg">
+                     <h2>黃越欽大法官勞動新聞獎 活動簡章</h2>
+
+                     <h3>參賽資格</h3>
+                     <p>本校大學部學生，或以本系專任教師為論文指導教授之碩士班在學學生。參賽作品主題應與勞動議題相關，並為申請人於本校就讀期間完成，申請時該作品未獲其他獎助金。</p>
+
+                     <h3>徵件類別</h3>
                      <h4>一、平面新聞獎</h4>
-                    <ul>
-                        <li>特優1名，獎金新台幣6000元及獎狀一紙；優等1至2名，獎金新台幣3000元及獎狀一紙。</li>
-                    </ul>
-                    <h4>二、影音新聞獎</h4>
-                    <ul>
-                        <li>特優1名，獎金新台幣6000元及獎狀一紙；優等1至2名，獎金新台幣3000元及獎狀一紙。</li>
-                    </ul>
-                    <h4>三、融媒體新聞獎</h4>
-                    <ul>
-                        <li>特優1名，獎金新台幣6000元及獎狀一紙；優等1至2名，獎金新台幣3000元及獎狀一紙。</li>
-                    </ul>
+                     <ul>
+                         <li>作品內容須包含新聞標題及新聞圖片，總字數內容3000字以上，字數計算包含全形標點符號，不含標題、圖說、稿頭。</li>
+                     </ul>
+                     <h4>二、影音新聞獎</h4>
+                     <ul>
+                         <li>影片總時間長度3至10分鐘。</li>
+                     </ul>
+                     <h4>三、融媒體新聞獎</h4>
+                     <ul>
+                         <li>以單一事件或專題之新聞報導為主題。</li>
+                         <li>將音檔、影片、文字或圖表等不同元素整合之新型態的媒體作品。</li>
+                         <li>作品可發表於網站、App或應用程式等。</li>
+                     </ul>
 
-                    <h3>注意事項</h3>
-                    <ol>
-                        <li>社會各界對獲獎作品有疑義時，得檢具相關資料向主辦單位提出。</li>
-                        <li>報名之作品，若有捏造、抄襲、非自行製作或新聞置入等情事，且經查證屬實者，剝奪參賽資格，如有得獎則主辦單位將取消得獎資格，並收回獎狀及獎金。</li>
-                        <li>參加競選的作品及所附資料，無論得獎與否，均不退回。</li>
-                        <li>得獎作品應授權主辦單位無償非商業使用與永久典藏。</li>
-                        <li>得獎者應配合主辦單位舉辦之頒獎活動。</li>
-                        <li>主辦單位對以上辦法保有最終解釋權。</li>
-                    </ol>
+                     <h3>報名與繳件規格</h3>
+                     <h4>一、收件日期</h4>
+                     <p>2025年7月1日至31日，以報名系統收到時間為準。</p>
+                     <h4>二、報名方式</h4>
+                     <p>線上報名（請至報名流程頁面）。主辦單位將於三個工作天內，以電子郵件回覆報名結果，請勿於此期間內重複來信，以免造成作業延誤。若未收到回覆郵件，請主動來信洽詢。</p>
+                     <h4>三、繳件規格</h4>
+                     <p>請參考作品規格說明頁面</p>
+                     <h4>四、繳交文件</h4>
+                     <ul>
+                         <li>報名表。</li>
+                         <li>學生證影本。</li>
+                         <li>作品檔案。</li>
+                     </ul>
+                      <h4>五、結果公布日期</h4>
+                     <p>得獎名單將於2025年9月1日公布，屆時將同步於「政大新聞系學會 Facebook 粉絲專頁」及「政大新星獎官網」揭曉，並以電子郵件個別通知得獎者，邀請前往國立政治大學參與頒獎典禮。</p>
 
-                    <h3>聯絡窗口</h3>
-                    <p>若對活動辦法有疑義，請洽政大新星獎官網或來信 <a href="mailto:nccunewssa@gmail.com">nccunewssa@gmail.com</a> ，亦可搜尋「政大新聞系學會 Facebook 粉絲專頁」洽詢。</p>
-                </article>
-            </section>
+                     <h3>評審機制</h3>
+                     <p>由主辦單位邀請新聞傳播專業人士擔任評審，選出優勝者。</p>
+
+                     <h3>獎項內容</h3>
+                      <h4>一、平面新聞獎</h4>
+                     <ul>
+                         <li>特優1名，獎金新台幣6000元及獎狀一紙；優等1至2名，獎金新台幣3000元及獎狀一紙。</li>
+                     </ul>
+                     <h4>二、影音新聞獎</h4>
+                     <ul>
+                         <li>特優1名，獎金新台幣6000元及獎狀一紙；優等1至2名，獎金新台幣3000元及獎狀一紙。</li>
+                     </ul>
+                     <h4>三、融媒體新聞獎</h4>
+                     <ul>
+                         <li>特優1名，獎金新台幣6000元及獎狀一紙；優等1至2名，獎金新台幣3000元及獎狀一紙。</li>
+                     </ul>
+
+                     <h3>注意事項</h3>
+                     <ol>
+                         <li>社會各界對獲獎作品有疑義時，得檢具相關資料向主辦單位提出。</li>
+                         <li>報名之作品，若有捏造、抄襲、非自行製作或新聞置入等情事，且經查證屬實者，剝奪參賽資格，如有得獎則主辦單位將取消得獎資格，並收回獎狀及獎金。</li>
+                         <li>參加競選的作品及所附資料，無論得獎與否，均不退回。</li>
+                         <li>得獎作品應授權主辦單位無償非商業使用與永久典藏。</li>
+                         <li>得獎者應配合主辦單位舉辦之頒獎活動。</li>
+                         <li>主辦單位對以上辦法保有最終解釋權。</li>
+                     </ol>
+
+                     <h3>聯絡窗口</h3>
+                     <p>若對活動辦法有疑義，請洽政大新星獎官網或來信 <a href="mailto:nccunewssa@gmail.com">nccunewssa@gmail.com</a> ，亦可搜尋「政大新聞系學會 Facebook 粉絲專頁」洽詢。</p>
+                 </article>
+             </section>
         </div>
 
-        <div id="registration-process-page" class="page-content hidden">
-             <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div id="registration-process-page" class="page-content hidden"> <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                  <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg">
-                    <h2>報名流程</h2>
-                    <div class="my-6 text-center">
-                        <a href="https://drive.google.com/drive/folders/1cvxMgjCoUZpGS32XR6-cnrcQGvF5gdMw?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 ease-in-out text-lg no-underline">
-                            <i class="fas fa-link mr-2"></i> 相關文件下載
-                        </a>
-                    </div>
-                    <h3>線上報名手續：</h3>
-                    <p>請先將相關資料下載填妥後，填寫線上報名系統，並送出表單</p>
-                    <p>→收到回覆確認線上報名成功。</p>
-                    </article>
-            </section>
+                     <h2>報名流程</h2>
+                     <div class="my-6 text-center">
+                         <a href="https://drive.google.com/drive/folders/1cvxMgjCoUZpGS32XR6-cnrcQGvF5gdMw?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 ease-in-out text-lg no-underline">
+                             <i class="fas fa-link mr-2"></i> 相關文件下載
+                         </a>
+                     </div>
+                     <h3>線上報名手續：</h3>
+                     <p>請先將相關資料下載填妥後，填寫線上報名系統，並送出表單</p>
+                     <p>→收到回覆確認線上報名成功。</p>
+                     </article>
+             </section>
         </div>
 
-        <div id="submission-specs-page" class="page-content hidden">
-              <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                 <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg">
-                    <h2>作品規格說明</h2>
-                    <h3>平面純淨新聞獎</h3>
-                    <h4>作品格式</h4>
-                    <ul>
-                        <li>word檔請設定字型標楷體，內文大小12，單行間距。</li>
-                        <li>須繳交Word檔及PDF檔。</li>
-                        <li>排版型式不限。</li>
-                        <li>新聞圖片格式：須有圖說。</li>
-                        <li>新聞圖片須另存成jpeg檔，並標註檔名（檔名以圖說命名）。</li>
-                    </ul>
-                    <h3>平面專題新聞獎</h3>
-                    <h4>作品格式</h4>
-                    <ul>
-                        <li>word檔請設定字型標楷體，內文大小12，單行間距。</li>
-                        <li>須繳交Word檔及PDF檔。</li>
-                        <li>排版型式不限。</li>
-                        <li>新聞圖片格式：須有圖說。</li>
-                        <li>新聞圖片須另存成jpeg檔，並標註檔名（檔名以圖說命名）。</li>
-                    </ul>
-                    <h3>平面新聞獎（勞動新聞獎）</h3>
-                    <h4>作品格式</h4>
-                    <ul>
-                        <li>word檔請設定字型標楷體，內文大小12，單行間距。</li>
-                        <li>須繳交Word檔及PDF檔。</li>
-                        <li>排版型式不限。</li>
-                        <li>新聞圖片格式：須有圖說。</li>
-                        <li>新聞圖片須另存成jpeg檔，並標註檔名（檔名以圖說命名）。</li>
-                    </ul>
-                    <h3>新聞攝影獎</h3>
-                    <h4>作品格式</h4>
-                    <ul>
-                        <li>作品檔案連結–同一系列之攝影作品以三張為限。</li>
-                        <li>需上傳jpeg格式，單張照片檔案大小限20MB以內。</li>
-                    </ul>
-                    <h3>影音新聞獎（勞動新聞獎）</h3>
-                    <h4>作品格式</h4>
-                    <ul>
-                        <li>注意繳交之影片可正常播放，影片格式為1920*1080或1280*720等高畫質解析度，並上傳至雲端。</li>
-                        <li>參賽作品若以客語、原住民語播出，請提供參賽作品逐字稿給評審參考，以利評審作業。</li>
-                        <li>如涉及版權，請附上音樂版權證明書，有關音樂版權的問題可參考，社團法人中華音樂著作權仲介協會（MUST）http://www.must.org.tw/。</li>
-                    </ul>
-                    <h3>融媒體新聞獎（勞動新聞獎）</h3>
-                    <h4>作品格式</h4>
-                    <ul>
-                        <li>提供參賽網站連結、APP應用軟體下載點等。</li>
-                        <li>提供所有網頁頁面內容之截圖PDF檔連結。</li>
-                        <li>網站型式：需為HTML格式，可適用於IE7.0、Chrome、FireFox2.0以上版本瀏覽器。</li>
-                        <li>APP應用軟體型式：作品必須適用於 Android 7.0或 iOS 10以上版本。</li>
-                    </ul>
-                </article>
-            </section>
+        <div id="submission-specs-page" class="page-content hidden"> <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                  <article class="prose lg:prose-xl max-w-none bg-white p-8 rounded-lg shadow-lg">
+                      <h2>作品規格說明</h2>
+                      <h3>平面純淨新聞獎</h3>
+                      <h4>作品格式</h4>
+                      <ul>
+                          <li>word檔請設定字型標楷體，內文大小12，單行間距。</li>
+                          <li>須繳交Word檔及PDF檔。</li>
+                          <li>排版型式不限。</li>
+                          <li>新聞圖片格式：須有圖說。</li>
+                          <li>新聞圖片須另存成jpeg檔，並標註檔名（檔名以圖說命名）。</li>
+                      </ul>
+                      <h3>平面專題新聞獎</h3>
+                      <h4>作品格式</h4>
+                      <ul>
+                          <li>word檔請設定字型標楷體，內文大小12，單行間距。</li>
+                          <li>須繳交Word檔及PDF檔。</li>
+                          <li>排版型式不限。</li>
+                          <li>新聞圖片格式：須有圖說。</li>
+                          <li>新聞圖片須另存成jpeg檔，並標註檔名（檔名以圖說命名）。</li>
+                      </ul>
+                      <h3>平面新聞獎（勞動新聞獎）</h3>
+                      <h4>作品格式</h4>
+                      <ul>
+                          <li>word檔請設定字型標楷體，內文大小12，單行間距。</li>
+                          <li>須繳交Word檔及PDF檔。</li>
+                          <li>排版型式不限。</li>
+                          <li>新聞圖片格式：須有圖說。</li>
+                          <li>新聞圖片須另存成jpeg檔，並標註檔名（檔名以圖說命名）。</li>
+                      </ul>
+                      <h3>新聞攝影獎</h3>
+                      <h4>作品格式</h4>
+                      <ul>
+                          <li>作品檔案連結–同一系列之攝影作品以三張為限。</li>
+                          <li>需上傳jpeg格式，單張照片檔案大小限20MB以內。</li>
+                      </ul>
+                      <h3>影音新聞獎（勞動新聞獎）</h3>
+                      <h4>作品格式</h4>
+                      <ul>
+                          <li>注意繳交之影片可正常播放，影片格式為1920*1080或1280*720等高畫質解析度，並上傳至雲端。</li>
+                          <li>參賽作品若以客語、原住民語播出，請提供參賽作品逐字稿給評審參考，以利評審作業。</li>
+                          <li>如涉及版權，請附上音樂版權證明書，有關音樂版權的問題可參考，社團法人中華音樂著作權仲介協會（MUST）http://www.must.org.tw/。</li>
+                      </ul>
+                      <h3>融媒體新聞獎（勞動新聞獎）</h3>
+                      <h4>作品格式</h4>
+                      <ul>
+                          <li>提供參賽網站連結、APP應用軟體下載點等。</li>
+                          <li>提供所有網頁頁面內容之截圖PDF檔連結。</li>
+                          <li>網站型式：需為HTML格式，可適用於IE7.0、Chrome、FireFox2.0以上版本瀏覽器。</li>
+                          <li>APP應用軟體型式：作品必須適用於 Android 7.0或 iOS 10以上版本。</li>
+                      </ul>
+                  </article>
+              </section>
         </div>
 
-        <div id="about-us-page" class="page-content hidden">
-             <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div id="about-us-page" class="page-content hidden"> <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                  <div class="mb-12 p-6 border rounded-lg bg-white shadow-sm">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="flex-1">
-                            <h2 class="text-3xl font-bold text-gray-800 mb-4">主辦單位</h2>
-                            <h3 class="text-xl font-semibold text-gray-700 mb-2">國立政治大學新聞系學會</h3>
-                            <p class="text-gray-600 leading-relaxed">國立政治大學新聞學系學會（簡稱：政大新聞系學會）是政大新聞系學生的自治組織，致力於服務系上同學，促進師生交流，並舉辦各項活動。</p>
-                        </div>
-                        <div class="flex-shrink-0 w-32 h-32 flex items-center justify-center border rounded-md p-2">
-                            <img src="https://github.com/jayyang358297/starnews/blob/main/image/%E6%96%B0%E6%98%9F%E7%8D%8ELOGO.png?raw=true" alt="[主辦單位Logo]" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/cccccc/999999?text=Logo';">
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-12 p-6 border rounded-lg bg-white shadow-sm">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="flex-1">
-                            <h2 class="text-3xl font-bold text-gray-800 mb-4">協辦單位</h2>
-                            <h3 class="text-xl font-semibold text-gray-700 mb-2">國立政治大學新聞學系</h3>
-                            <p class="text-gray-600 leading-relaxed">國立政治大學新聞學系創於民國24年，是國內最早成立的新聞傳播科系，也是台灣新聞傳播教育的領導品牌，無論知識傳播、教學和研究創新，均著名國內外。</p>
-                        </div>
-                        <div class="flex-shrink-0 w-48 h-auto flex items-center justify-center border rounded-md p-2">
-                            <img src="https://github.com/jayyang358297/starnews/blob/main/image/nccunewlogo.png?raw=true" alt="[協辦單位Logo]" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/150x60/cccccc/999999?text=Logo';">
-                        </div>
-                    </div>
-                </div>
-                <section class="mt-16">
-                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">聯絡表單</h2>
-                    <div class="google-form-container bg-white p-1 md:p-2 rounded-lg shadow-lg mx-auto">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSckhNAd7PSCmgkTZc7nsj20SdY1kAFZULh8_JHfCHIOSd0SLg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
-                    </div>
-                </section>
-            </section>
+                     <div class="flex flex-col md:flex-row items-center gap-8">
+                         <div class="flex-1">
+                             <h2 class="text-3xl font-bold text-gray-800 mb-4">主辦單位</h2>
+                             <h3 class="text-xl font-semibold text-gray-700 mb-2">國立政治大學新聞系學會</h3>
+                             <p class="text-gray-600 leading-relaxed">國立政治大學新聞學系學會（簡稱：政大新聞系學會）是政大新聞系學生的自治組織，致力於服務系上同學，促進師生交流，並舉辦各項活動。</p>
+                         </div>
+                         <div class="flex-shrink-0 w-32 h-32 flex items-center justify-center border rounded-md p-2">
+                             <img src="https://github.com/jayyang358297/starnews/blob/main/image/%E6%96%B0%E6%98%9F%E7%8D%8ELOGO.png?raw=true" alt="[主辦單位Logo]" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/cccccc/999999?text=Logo';">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="mb-12 p-6 border rounded-lg bg-white shadow-sm">
+                     <div class="flex flex-col md:flex-row items-center gap-8">
+                         <div class="flex-1">
+                             <h2 class="text-3xl font-bold text-gray-800 mb-4">協辦單位</h2>
+                             <h3 class="text-xl font-semibold text-gray-700 mb-2">國立政治大學新聞學系</h3>
+                             <p class="text-gray-600 leading-relaxed">國立政治大學新聞學系創於民國24年，是國內最早成立的新聞傳播科系，也是台灣新聞傳播教育的領導品牌，無論知識傳播、教學和研究創新，均著名國內外。</p>
+                         </div>
+                         <div class="flex-shrink-0 w-48 h-auto flex items-center justify-center border rounded-md p-2">
+                             <img src="https://github.com/jayyang358297/starnews/blob/main/image/nccunewlogo.png?raw=true" alt="[協辦單位Logo]" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/150x60/cccccc/999999?text=Logo';">
+                         </div>
+                     </div>
+                 </div>
+                 <section class="mt-16">
+                     <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">聯絡表單</h2>
+                     <div class="google-form-container bg-white p-1 md:p-2 rounded-lg shadow-lg mx-auto">
+                         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSckhNAd7PSCmgkTZc7nsj20SdY1kAFZULh8_JHfCHIOSd0SLg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                     </div>
+                 </section>
+             </section>
         </div>
 
-        <div id="faq-page" class="page-content hidden">
-             <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">常見問題</h2>
-                <div class="max-w-3xl mx-auto" id="faq-accordion">
-                    <div class="faq-item mb-2">
-                        <button class="faq-question w-full text-left font-semibold text-gray-700">
-                            <span>Q1: 若我要同時報名兩類獎項，需要分兩個雲端連結嗎？ </span>
-                            <span class="faq-icon text-xl transform transition-transform duration-300">
-                                <i class="fas fa-chevron-down"></i>
-                            </span>
-                        </button>
-                        <div class="faq-answer bg-gray-50 px-4 py-0 border border-t-0 border-gray-200 rounded-b-md">
-                            <p class="text-gray-600 leading-relaxed pt-4 pb-4">不需要。您可以資料夾作為分類。</p>
-                        </div>
-                    </div>
-                    <div class="faq-item mb-2">
-                        <button class="faq-question w-full text-left font-semibold text-gray-700">
-                            <span>Q2: 一個人可以報名多件作品嗎？</span>
-                            <span class="faq-icon text-xl transform transition-transform duration-300">
-                                <i class="fas fa-chevron-down"></i>
-                            </span>
-                        </button>
-                        <div class="faq-answer bg-gray-50 px-4 py-0 border border-t-0 border-gray-200 rounded-b-md">
-                             <p class="text-gray-600 leading-relaxed pt-4 pb-4">可以。同一作者可報名一件以上不同作品，但同一件作品僅能擇一類別投件（例如：平面純淨新聞或平面專題新聞擇一）。新聞攝影類則限制同一作者投稿件數上限為兩件。</p>
-                        </div>
-                    </div>
-                    <div class="faq-item mb-2">
-                        <button class="faq-question w-full text-left font-semibold text-gray-700">
-                            <span>Q3: 團體作品如何報名？</span>
-                            <span class="faq-icon text-xl transform transition-transform duration-300">
-                                <i class="fas fa-chevron-down"></i>
-                            </span>
-                        </button>
-                        <div class="faq-answer bg-gray-50 px-4 py-0 border border-t-0 border-gray-200 rounded-b-md">
-                             <p class="text-gray-600 leading-relaxed pt-4 pb-4">若為團體作品，僅需推派一人代表填寫線上報名表單、寄送報名文件及匯款即可。請確保所有團隊成員的資料都正確填寫於相關文件中。</p>
-                        </div>
-                    </div>
+        <div id="faq-page" class="page-content hidden"> <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">常見問題</h2>
+                 <div class="max-w-3xl mx-auto" id="faq-accordion">
                      <div class="faq-item mb-2">
-                        <button class="faq-question w-full text-left font-semibold text-gray-700">
-                            <span>Q4: 報名截止日期是？</span>
-                            <span class="faq-icon text-xl transform transition-transform duration-300">
-                                <i class="fas fa-chevron-down"></i>
-                            </span>
-                        </button>
-                        <div class="faq-answer bg-gray-50 px-4 py-0 border border-t-0 border-gray-200 rounded-b-md">
-                             <p class="text-gray-600 leading-relaxed pt-4 pb-4">收件日期為 2025年7月1日至7月31日，以新星獎官方收到時間為準，請詳閱「報名流程」。</p>
-                        </div>
-                    </div>
-                    </div>
-            </section>
+                         <button class="faq-question w-full text-left font-semibold text-gray-700" aria-expanded="false">
+                             <span>Q1: 若我要同時報名兩類獎項，需要分兩個雲端連結嗎？ </span>
+                             <span class="faq-icon text-xl transform transition-transform duration-300">
+                                 <i class="fas fa-chevron-down"></i>
+                             </span>
+                         </button>
+                         <div class="faq-answer bg-gray-50 px-4 py-0 border border-t-0 border-gray-200 rounded-b-md">
+                             <p class="text-gray-600 leading-relaxed pt-4 pb-4">不需要。您可以資料夾作為分類。</p>
+                         </div>
+                     </div>
+                     <div class="faq-item mb-2">
+                         <button class="faq-question w-full text-left font-semibold text-gray-700" aria-expanded="false">
+                             <span>Q2: 一個人可以報名多件作品嗎？</span>
+                             <span class="faq-icon text-xl transform transition-transform duration-300">
+                                 <i class="fas fa-chevron-down"></i>
+                             </span>
+                         </button>
+                         <div class="faq-answer bg-gray-50 px-4 py-0 border border-t-0 border-gray-200 rounded-b-md">
+                              <p class="text-gray-600 leading-relaxed pt-4 pb-4">可以。同一作者可報名一件以上不同作品，但同一件作品僅能擇一類別投件（例如：平面純淨新聞或平面專題新聞擇一）。新聞攝影類則限制同一作者投稿件數上限為兩件。</p>
+                         </div>
+                     </div>
+                     <div class="faq-item mb-2">
+                         <button class="faq-question w-full text-left font-semibold text-gray-700" aria-expanded="false">
+                             <span>Q3: 團體作品如何報名？</span>
+                             <span class="faq-icon text-xl transform transition-transform duration-300">
+                                 <i class="fas fa-chevron-down"></i>
+                             </span>
+                         </button>
+                         <div class="faq-answer bg-gray-50 px-4 py-0 border border-t-0 border-gray-200 rounded-b-md">
+                              <p class="text-gray-600 leading-relaxed pt-4 pb-4">若為團體作品，僅需推派一人代表填寫線上報名表單、送出報名文件即可。請確保所有團隊成員的資料都正確填寫於相關文件中。</p>
+                         </div>
+                     </div>
+                      <div class="faq-item mb-2">
+                         <button class="faq-question w-full text-left font-semibold text-gray-700" aria-expanded="false">
+                             <span>Q4: 報名截止日期是？</span>
+                             <span class="faq-icon text-xl transform transition-transform duration-300">
+                                 <i class="fas fa-chevron-down"></i>
+                             </span>
+                         </button>
+                         <div class="faq-answer bg-gray-50 px-4 py-0 border border-t-0 border-gray-200 rounded-b-md">
+                              <p class="text-gray-600 leading-relaxed pt-4 pb-4">收件日期為 2025年7月1日至7月31日，以新星獎官方收到時間為準，請詳閱「報名流程」。</p>
+                         </div>
+                     </div>
+                     </div>
+             </section>
         </div>
 
     </main>
 
     <footer class="bg-gray-100 text-gray-600 mt-12 py-8">
        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="mb-4 text-sm">
-                <span>116台北市文山區指南路二段64號</span>
-                <span class="mx-2">|</span>
-                <a href="mailto:nccunewssa@gmail.com" class="hover:text-gray-900">nccunewssa@gmail.com</a>
-            </div>
-            <div class="flex justify-center space-x-4 mb-6">
-                <a href="https://www.facebook.com/profile.php?id=100090452012913#" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/nccu.jour/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://jschool.nccu.edu.tw/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="相關連結">
-                    <i class="fas fa-link"></i>
-                </a>
-            </div>
-            <div class="text-xs text-gray-500">
-                Copyright &copy; 2025 國立政治大學新聞系學會. All rights reserved.
-            </div>
-        </div>
+           <div class="mb-4 text-sm">
+               <span>116台北市文山區指南路二段64號</span>
+               <span class="mx-2">|</span>
+               <a href="mailto:nccunewssa@gmail.com" class="hover:text-gray-900">nccunewssa@gmail.com</a>
+           </div>
+           <div class="flex justify-center space-x-4 mb-6">
+               <a href="https://www.facebook.com/profile.php?id=100090452012913#" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Facebook">
+                   <i class="fab fa-facebook-f"></i>
+               </a>
+               <a href="https://www.instagram.com/nccu.jour/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Instagram">
+                   <i class="fab fa-instagram"></i>
+               </a>
+               <a href="https://jschool.nccu.edu.tw/" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="相關連結">
+                   <i class="fas fa-link"></i>
+               </a>
+           </div>
+           <div class="text-xs text-gray-500">
+               Copyright &copy; 2025 國立政治大學新聞系學會. All rights reserved.
+           </div>
+       </div>
     </footer>
 
     <script>
@@ -647,52 +631,62 @@
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const navbarLinks = document.getElementById('navbar-links');
 
-        // Ensure initial state for desktop/mobile
+        // Ensure initial state for desktop/mobile on load
         if (navbarLinks) {
-            navbarLinks.classList.add('hidden', 'sm:flex'); // Hidden on mobile, flex on sm+
+            // Initially hidden on mobile, uses sm:flex for larger screens
+            navbarLinks.classList.add('hidden');
         }
 
         if (mobileMenuButton && navbarLinks) {
             mobileMenuButton.addEventListener('click', () => {
-                // Toggle visibility for mobile view
-                navbarLinks.classList.toggle('hidden'); // Toggles hidden class
-                navbarLinks.classList.toggle('flex'); // Toggles flex class (needed when not hidden)
-                navbarLinks.classList.toggle('flex-col'); // Ensure it stacks vertically on mobile when shown
-                navbarLinks.classList.toggle('w-full'); // Ensure it takes full width on mobile when shown
+                // Toggle visibility and layout classes for mobile menu
+                navbarLinks.classList.toggle('hidden');
+                navbarLinks.classList.toggle('flex'); // Needs flex to be visible
+                navbarLinks.classList.toggle('flex-col'); // Stack vertically
+                navbarLinks.classList.toggle('w-full'); // Take full width
             });
         }
 
         // --- Page Switching Logic (SPA Behavior) ---
         const pageContents = document.querySelectorAll('.page-content');
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('.nav-link'); // Select all potential nav links
         const bodyElement = document.body;
 
+        /**
+         * Shows the specified page content and hides others.
+         * Updates navigation link styles and initializes page-specific JS if needed.
+         * @param {string} pageId - The ID suffix of the page to show (e.g., 'home', 'faq').
+         */
         const showPage = (pageId) => {
-            // Hide all page content divs
+            // Hide all page content divs first
             pageContents.forEach(page => {
                 page.classList.add('hidden');
             });
 
-            // Find the target page div
+            // Find the target page div by constructing the full ID
             const targetPage = document.getElementById(pageId + '-page');
 
             if (targetPage) {
                 // Show the target page
                 targetPage.classList.remove('hidden');
-                // Update body attribute for potential styling hooks
+                // Update body attribute (useful for potential page-specific styling)
                 bodyElement.setAttribute('data-current-page', pageId);
 
-                // Initialize page-specific JavaScript components if needed
-                // This ensures components like timers/carousels run only when their page is visible
+                // Initialize page-specific JavaScript components ONLY when the page is shown.
+                // This prevents unnecessary execution and potential errors.
+                // Uses initialization flags (e.g., dataset.initialized) within functions
+                // to prevent re-running initialization logic if the page is shown again.
                 if (pageId === 'home') {
-                    initializeCountdownTimer(); // Renamed for clarity
-                    initializeCarousel();      // Renamed for clarity
+                    initializeCountdownTimer(); // Initialize or update countdown
+                    initializeCarousel();       // Initialize or restart carousel
                 } else if (pageId === 'faq') {
-                    initializeFAQAccordion(); // Renamed for clarity
+                    initializeFAQAccordion();   // Initialize FAQ accordion listeners
                 }
-                // Add other page initializations here if needed
+                // Add other 'else if' blocks for other pages needing JS initialization
+
             } else {
-                // Fallback: If page not found, show the home page
+                // Fallback: If the requested page ID doesn't exist, show the home page.
+                console.warn(`Page with id "${pageId}-page" not found. Showing home page.`);
                 const homePage = document.getElementById('home-page');
                 if (homePage) {
                     homePage.classList.remove('hidden');
@@ -700,38 +694,54 @@
                     initializeCountdownTimer(); // Initialize home page JS
                     initializeCarousel();
                 }
-                console.warn(`Page with id "${pageId}-page" not found. Showing home page.`);
             }
 
             // Update 'active' class on navigation links
             navLinks.forEach(link => {
-                link.classList.remove('active'); // Remove active from all links
+                link.classList.remove('active'); // Remove active from all links/buttons first
                 const linkPage = link.getAttribute('data-page');
-                 // Check if the link corresponds to the current page or is within an active dropdown
+
+                // Check if the link's data-page matches the current pageId
                 if (linkPage === pageId) {
                     link.classList.add('active');
-                    // Also activate parent dropdown button if nested
-                    const parentGroup = link.closest('.group');
+                    // If the active link is inside a dropdown submenu, also activate the parent dropdown button
+                    const parentGroup = link.closest('.group'); // Find the nearest parent with class 'group'
                     if(parentGroup) {
-                        const button = parentGroup.querySelector('button.nav-link');
-                        if(button) button.classList.add('active');
+                        const button = parentGroup.querySelector('button.nav-link'); // Find the button within that group
+                        if(button) button.classList.add('active'); // Add active class to the dropdown button
                     }
                 }
+                 // Also check parent dropdown buttons directly (handles case where dropdown itself is clicked)
+                const parentButton = link.closest('li.group > button.nav-link');
+                 if(parentButton && parentButton.classList.contains('active')){
+                     // If a child link becomes active, ensure the parent button stays active visually
+                 }
             });
 
-            // Scroll to top of the page on navigation
+            // Scroll to the top of the page for better UX on navigation
             window.scrollTo(0, 0);
 
-            // Close mobile menu after navigation (if it's open and we are on mobile view)
-            if (navbarLinks && !navbarLinks.classList.contains('sm:flex') && !navbarLinks.classList.contains('hidden')) {
+            // Close the mobile menu automatically after clicking a link (if open and on mobile view)
+            // Checks if navbarLinks is visible and not using the sm:flex rule (meaning it's the mobile layout)
+            if (navbarLinks && !navbarLinks.classList.contains('hidden') && window.innerWidth < 640) { // 640px is Tailwind's default 'sm' breakpoint
                  navbarLinks.classList.add('hidden');
                  navbarLinks.classList.remove('flex', 'flex-col', 'w-full');
             }
         };
 
         // --- Countdown Timer ---
+        /**
+         * Initializes or updates the countdown timer.
+         * Prevents multiple interval timers using a dataset attribute.
+         */
         const initializeCountdownTimer = () => {
-            // Target date: July 31, 2025, 23:59:59 (Month is 0-indexed, so 6 = July)
+            // Target date: July 31, 2025, 23:59:59 Taiwan Time (UTC+8)
+            // Month is 0-indexed (0=Jan, 6=July)
+            // Note: Creating Date objects with specific timezones in JS can be tricky.
+            // This assumes the user's browser running the script is in a timezone where this date/time makes sense,
+            // or relies on the server/build process setting the correct timestamp if generated dynamically.
+            // For consistency across timezones, using UTC or a library like date-fns/Moment Timezone is recommended.
+            // Let's stick to the local time interpretation for now as per the original code's likely intent.
             const targetDate = new Date(2025, 6, 31, 23, 59, 59).getTime();
 
             const daysEl = document.getElementById('days');
@@ -741,58 +751,68 @@
             const messageEl = document.getElementById('countdown-message');
             const timerContainer = document.getElementById('countdown-timer');
 
-            // Check if elements exist and if timer is already running
+            // Basic check if timer elements exist
             if (!daysEl || !hoursEl || !minutesEl || !secondsEl || !messageEl || !timerContainer) {
-                console.error("Countdown timer elements not found.");
+                console.error("Countdown timer elements not found. Timer cannot start.");
                 return;
             }
 
-            // Clear existing interval if any (prevents multiple timers)
+            // --- Interval Management ---
+            // Get the existing interval ID stored on the container (if any)
             const existingIntervalId = timerContainer.dataset.intervalId;
+            // If an interval is already running, clear it before starting a new one.
+            // This prevents multiple timers running simultaneously if initializeCountdownTimer is called again.
             if (existingIntervalId) {
                 clearInterval(parseInt(existingIntervalId));
             }
+            // --- End Interval Management ---
 
             const updateTimer = () => {
                 const now = new Date().getTime();
                 const distance = targetDate - now;
 
+                // Check if the countdown has finished
                 if (distance < 0) {
-                    // Time's up
-                    clearInterval(interval);
-                    timerContainer.innerHTML = ""; // Clear timer display
-                    messageEl.textContent = "徵件已截止";
-                    messageEl.classList.add('text-red-600', 'font-bold');
-                    delete timerContainer.dataset.intervalId; // Remove interval ID attribute
-                    return;
+                    clearInterval(interval); // Stop the interval timer
+                    timerContainer.innerHTML = ""; // Optional: Clear the timer display elements
+                    messageEl.textContent = "徵件已截止"; // Display the end message
+                    messageEl.classList.add('text-red-600', 'font-bold'); // Style the message
+                    delete timerContainer.dataset.intervalId; // Remove the stored interval ID
+                    return; // Exit the function
                 }
 
-                // Calculate time parts
+                // Calculate remaining time parts
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                // Update DOM elements
+                // Update the HTML elements with the calculated values, padding with '0' if needed
                 daysEl.textContent = String(days).padStart(2, '0');
                 hoursEl.textContent = String(hours).padStart(2, '0');
                 minutesEl.textContent = String(minutes).padStart(2, '0');
                 secondsEl.textContent = String(seconds).padStart(2, '0');
 
-                // Ensure message is cleared if timer is running
+                // Ensure the "ended" message is cleared if the timer is still running
                 messageEl.textContent = "";
                 messageEl.classList.remove('text-red-600', 'font-bold');
             };
 
-            // Run immediately and then set interval
+            // Run updateTimer once immediately to display the initial time
             updateTimer();
+            // Then, set an interval to run updateTimer every second (1000ms)
             const interval = setInterval(updateTimer, 1000);
 
-            // Store interval ID on the container to manage it
+            // Store the new interval ID on the timer container element using a data attribute.
+            // This allows us to clear it later if the function is called again or the timer ends.
             timerContainer.dataset.intervalId = interval.toString();
         };
 
         // --- Past Works Carousel (with Auto-play) ---
+        /**
+         * Initializes the image carousel with navigation and auto-play.
+         * Uses dataset attributes to prevent re-initialization and manage state.
+         */
         const initializeCarousel = () => {
             const imgElement = document.getElementById('carousel-img');
             const captionElement = document.getElementById('carousel-caption');
@@ -800,135 +820,157 @@
             const nextButton = document.getElementById('next-button');
             const carouselContainer = document.getElementById('past-works-carousel');
 
+            // Check if essential elements exist
             if (!imgElement || !captionElement || !prevButton || !nextButton || !carouselContainer) {
-                 console.error("Carousel elements not found.");
-                 return;
+                console.error("Carousel elements not found. Cannot initialize.");
+                return;
             }
 
-            // Check if already initialized to prevent duplicate timers and listeners
-            // Use a specific attribute to track carousel initialization state
+            // --- Initialization Check ---
+            // Check if the carousel has already been initialized using a flag.
+            // This prevents adding duplicate event listeners and starting multiple autoplay intervals
+            // if initializeCarousel is called when the home page is shown again.
             if (carouselContainer.dataset.carouselInitialized === 'true') {
-                // If already initialized, ensure autoplay is running (in case page was hidden and shown again)
-                 const existingAutoPlayId = carouselContainer.dataset.autoPlayIntervalId;
-                 if (!existingAutoPlayId) { // Check if autoplay needs restarting
+                // If already initialized, just ensure autoplay is running (it might have been stopped by mouseleave)
+                // Check if an interval ID exists; if not, restart autoplay.
+                const existingAutoPlayId = carouselContainer.dataset.autoPlayIntervalId;
+                 if (!existingAutoPlayId && worksData.length > 1) { // Only restart if needed and more than one slide
                      startAutoPlay();
                  }
-                 return;
+                return; // Exit initialization if already done
             }
+            // --- End Initialization Check ---
 
-
-            const works = [
+            // --- Carousel Data ---
+            const worksData = [ // Renamed from 'works' to avoid conflict with potential global 'works'
                 { src: 'https://github.com/jayyang358297/starnews/blob/main/winner/2/%E6%A5%B5_1_1%20(2).jpg?raw=true', caption: '新與心的距離 外籍看護的心理狀況與照護／楊凱傑' },
                 { src: 'https://github.com/jayyang358297/starnews/blob/main/winner/2/%E9%9B%A8_5_1%20(1).jpg?raw=true', caption: '提升公共運輸市占率　專家籲調高機車成本/吳妤潔' },
                 { src: 'https://github.com/jayyang358297/starnews/blob/main/winner/2/%E9%9B%A8_8_1%20(1).jpg?raw=true', caption: '政府輔導萬華茶室合法化　業者望轉型街區除汙名/吳妤潔' },
                 { src: 'https://github.com/jayyang358297/starnews/blob/main/winner/2/3%20(2).jpg?raw=true', caption: '北市國中小教師荒　代理教師制度待改善/李香霆' }
                 // Add more works here if needed
             ];
-            let currentIndex = 0;
-            let autoPlayInterval = null; // Variable to hold the interval ID
-            const autoPlayDelay = 5000; // Delay in milliseconds (5 seconds)
+            let currentIndex = 0; // Track the currently displayed slide index
+            let autoPlayInterval = null; // Variable to hold the interval ID for autoplay
+            const autoPlayDelay = 5000; // Autoplay delay in milliseconds (5 seconds)
 
+            /** Displays the work at the given index */
             const showWork = (index) => {
-                // Fade out current image (optional, for smoother transition)
+                if (worksData.length === 0) return; // Do nothing if no works
+
+                // Fade out the current image for a smoother transition
                 imgElement.style.opacity = 0;
 
-                // Use a short timeout to allow fade-out before changing content
+                // Use setTimeout to allow the fade-out animation to start before changing the image source
                 setTimeout(() => {
-                    // Handle index bounds
-                    if (index >= works.length) {
-                        currentIndex = 0; // Wrap around to the start
+                    // Handle index wrapping (looping)
+                    if (index >= worksData.length) {
+                        currentIndex = 0; // Go to the first slide
                     } else if (index < 0) {
-                        currentIndex = works.length - 1; // Wrap around to the end
+                        currentIndex = worksData.length - 1; // Go to the last slide
                     } else {
-                        currentIndex = index;
+                        currentIndex = index; // Set the current index
                     }
 
-                    // Update image source and caption
-                    imgElement.src = works[currentIndex].src;
-                    imgElement.alt = `[${works[currentIndex].caption}]`; // Alt text for accessibility
-                    captionElement.textContent = works[currentIndex].caption;
+                    // Update the image source and caption
+                    const currentWork = worksData[currentIndex];
+                    imgElement.src = currentWork.src;
+                    imgElement.alt = `[${currentWork.caption}]`; // Set alt text for accessibility
+                    captionElement.textContent = currentWork.caption;
 
-                    // Image error handling
+                    // Basic image error handling: display a placeholder if the image fails to load
                     imgElement.onerror = function() {
-                        this.onerror=null; // Prevent infinite loop if placeholder fails
+                        this.onerror=null; // Prevent infinite loops if the placeholder itself fails
                         this.src='https://placehold.co/600x400/cccccc/999999?text=Image+Load+Failed';
                         captionElement.textContent = '圖片載入失敗';
+                         imgElement.style.opacity = 1; // Ensure placeholder is visible
                     };
-                    // Fade in new image
-                    imgElement.style.opacity = 1;
-                }, 150); // Adjust timeout slightly less than CSS transition if needed
+                     // Image onload handler to ensure opacity transition happens after load
+                    imgElement.onload = function() {
+                        imgElement.style.opacity = 1; // Fade in the new image
+                    }
+                    // If the image is already cached, onload might not fire, so set opacity anyway
+                    if (imgElement.complete) {
+                         imgElement.style.opacity = 1;
+                    }
+
+                }, 150); // Short delay (adjust timing based on CSS transition duration)
             };
 
-            // Function to start auto-play
+            /** Starts the autoplay interval */
             const startAutoPlay = () => {
-                // Clear any existing interval first to prevent duplicates
-                 const existingId = carouselContainer.dataset.autoPlayIntervalId;
-                 if (existingId) {
-                     clearInterval(parseInt(existingId));
-                 }
-                 stopAutoPlay(); // Ensure previous interval is cleared
-
-                // Start new interval
+                if (worksData.length <= 1) return; // Don't autoplay if only one or zero slides
+                stopAutoPlay(); // Clear any existing interval first
                 autoPlayInterval = setInterval(() => {
-                    showWork(currentIndex + 1);
+                    showWork(currentIndex + 1); // Move to the next slide
                 }, autoPlayDelay);
-                 carouselContainer.dataset.autoPlayIntervalId = autoPlayInterval.toString(); // Store new ID
+                // Store the interval ID so it can be cleared later
+                carouselContainer.dataset.autoPlayIntervalId = autoPlayInterval.toString();
             };
 
-            // Function to stop auto-play
+            /** Stops the autoplay interval */
             const stopAutoPlay = () => {
-                 const existingId = carouselContainer.dataset.autoPlayIntervalId;
-                 if (existingId) {
-                     clearInterval(parseInt(existingId));
-                     delete carouselContainer.dataset.autoPlayIntervalId; // Remove stored ID
-                     autoPlayInterval = null; // Reset variable
-                 }
+                const existingId = carouselContainer.dataset.autoPlayIntervalId;
+                if (existingId) {
+                    clearInterval(parseInt(existingId));
+                    delete carouselContainer.dataset.autoPlayIntervalId; // Remove the stored ID
+                    autoPlayInterval = null;
+                }
             };
 
-            // Attach event listeners only once using flags
+            // --- Attach Event Listeners (Only Once) ---
+            // Use dataset attributes to track if listeners have been attached.
             if (prevButton.dataset.listenerAttached !== 'true') {
-                 prevButton.addEventListener('click', () => {
-                    stopAutoPlay(); // Stop auto-play on manual interaction
+                prevButton.addEventListener('click', () => {
+                    stopAutoPlay(); // Stop autoplay on manual interaction
                     showWork(currentIndex - 1);
-                    // Optional: Restart auto-play after a delay
+                    // Optional: Restart autoplay after a delay (e.g., 10 seconds)
                     // setTimeout(startAutoPlay, autoPlayDelay * 2);
                 });
-                prevButton.dataset.listenerAttached = 'true';
+                prevButton.dataset.listenerAttached = 'true'; // Mark as attached
             }
 
             if (nextButton.dataset.listenerAttached !== 'true') {
                 nextButton.addEventListener('click', () => {
-                    stopAutoPlay(); // Stop auto-play on manual interaction
+                    stopAutoPlay(); // Stop autoplay on manual interaction
                     showWork(currentIndex + 1);
-                    // Optional: Restart auto-play after a delay
+                    // Optional: Restart autoplay after a delay
                     // setTimeout(startAutoPlay, autoPlayDelay * 2);
                 });
-                nextButton.dataset.listenerAttached = 'true';
+                nextButton.dataset.listenerAttached = 'true'; // Mark as attached
             }
 
-            // Pause auto-play on hover - attach only once
-             if (carouselContainer.dataset.hoverListenersAttached !== 'true') {
+            // Pause autoplay when the mouse hovers over the carousel container
+            if (carouselContainer.dataset.hoverListenersAttached !== 'true') {
                 carouselContainer.addEventListener('mouseenter', stopAutoPlay);
-                carouselContainer.addEventListener('mouseleave', startAutoPlay); // Restart on mouse leave
-                carouselContainer.dataset.hoverListenersAttached = 'true';
-             }
+                // Resume autoplay when the mouse leaves the container
+                carouselContainer.addEventListener('mouseleave', startAutoPlay);
+                carouselContainer.dataset.hoverListenersAttached = 'true'; // Mark as attached
+            }
+            // --- End Event Listeners ---
 
-
-            // Show the initial work and start auto-play
+            // Initial setup: Show the first work and start autoplay
             showWork(currentIndex);
-            startAutoPlay();
-            carouselContainer.dataset.carouselInitialized = 'true'; // Mark carousel as initialized
+            if (worksData.length > 1) { // Only start autoplay if there's more than one slide
+                 startAutoPlay();
+            }
+            carouselContainer.dataset.carouselInitialized = 'true'; // Mark the carousel as initialized
         };
 
+
         // --- FAQ Accordion ---
+        /**
+         * Initializes the FAQ accordion functionality.
+         * Adds click listeners to questions to toggle answers.
+         * Uses a dataset attribute to prevent re-initialization.
+         */
         const initializeFAQAccordion = () => {
             const accordion = document.getElementById('faq-accordion');
             if (!accordion) {
-                 console.error("FAQ accordion container not found.");
-                 return;
+                console.error("FAQ accordion container not found.");
+                return;
             }
 
-             // Check if already initialized
+            // Prevent re-adding listeners if already initialized
             if (accordion.dataset.initialized === 'true') {
                 return;
             }
@@ -940,58 +982,74 @@
                 const answerDiv = item.querySelector('.faq-answer');
 
                 if (questionButton && answerDiv) {
-                    // Check if listener is already attached
-                    if(questionButton.dataset.listenerAttached === 'true') return;
+                    // Check if listener already attached to this specific button
+                    if(questionButton.dataset.listenerAttached === 'true') return; // Skip if already done
 
                     questionButton.addEventListener('click', () => {
-                        // Toggle the 'open' class on the answer and button
+                        // Toggle the 'open' class on the answer div to trigger CSS transitions
                         const isOpen = answerDiv.classList.toggle('open');
-                        questionButton.classList.toggle('open', isOpen); // Sync button state
-                        // Optional: Set aria-expanded attribute for accessibility
-                        questionButton.setAttribute('aria-expanded', isOpen);
+                        // Toggle 'open' class on the button itself (for icon rotation)
+                        questionButton.classList.toggle('open', isOpen);
+                        // Update aria-expanded attribute for accessibility
+                        questionButton.setAttribute('aria-expanded', isOpen.toString());
+
+                        // Optional: Close other open FAQs when one is opened
+                        // faqItems.forEach(otherItem => {
+                        //     if (otherItem !== item) {
+                        //         otherItem.querySelector('.faq-answer').classList.remove('open');
+                        //         otherItem.querySelector('.faq-question').classList.remove('open');
+                        //         otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        //     }
+                        // });
                     });
-                    // Mark listener as attached
+
+                    // Mark this button as having its listener attached
                     questionButton.dataset.listenerAttached = 'true';
 
-                    // Optional: Initialize aria-expanded state
+                    // Set initial aria-expanded state based on whether 'open' class is present initially
                     questionButton.setAttribute('aria-expanded', answerDiv.classList.contains('open'));
                 }
             });
-            accordion.dataset.initialized = 'true'; // Mark as initialized
+
+            // Mark the entire accordion container as initialized
+            accordion.dataset.initialized = 'true';
         };
 
 
         // --- DOMContentLoaded Event Listener ---
-        // Ensures the DOM is fully loaded before running scripts that interact with it.
+        // Ensures the DOM is fully loaded before running scripts that interact with elements.
         document.addEventListener('DOMContentLoaded', () => {
 
-            // Attach click handlers to all navigation links with 'data-page' attribute
+            // Attach click handlers using the showPage function to navigation links
+            // This replaces the inline onclick="showPage(...)" approach for cleaner separation,
+            // but the original inline handlers will still work if present.
+            // It's generally better to attach listeners here.
             document.querySelectorAll('.nav-link[data-page]').forEach(link => {
                 const page = link.getAttribute('data-page');
                 if (page) {
-                    // Use onclick for simplicity here, could be replaced with addEventListener
-                    link.onclick = (e) => {
-                        e.preventDefault(); // Prevent default link behavior
-                        showPage(page);
-                    };
+                    // Check if an inline onclick already exists; if not, add listener.
+                    // Or simply override by always adding the listener here.
+                    link.addEventListener('click', (e) => {
+                         e.preventDefault(); // Prevent default link behavior (like navigating to #)
+                         showPage(page);
+                    });
                 }
             });
 
-            // Ensure the logo click navigates to the home page
-            const logoLink = document.querySelector('header > nav > a'); // Select the main logo link
+            // Ensure the main logo/title link also navigates to the home page
+            const logoLink = document.querySelector('header > nav > a'); // Select the main logo link more specifically
             if (logoLink) {
-                 logoLink.onclick = (e) => {
-                    e.preventDefault();
-                    showPage('home');
-                };
+                 logoLink.addEventListener('click', (e) => {
+                     e.preventDefault();
+                     showPage('home');
+                 });
             }
 
             // --- Initial Page Load ---
-            // Determine initial page (e.g., from URL hash or default to 'home')
-            // For simplicity, we default to 'home' here.
-            // Could be enhanced to read #hash from URL: const initialPage = window.location.hash.substring(1) || 'home';
+            // Determine which page to show initially. Default to 'home'.
+            // Could be enhanced to read from URL hash: const initialPage = window.location.hash.substring(1) || 'home';
             const initialPage = 'home';
-            showPage(initialPage);
+            showPage(initialPage); // Show the initial page and run its specific JS
 
         });
     </script>
