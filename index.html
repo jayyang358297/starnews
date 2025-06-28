@@ -740,7 +740,7 @@
             // or relies on the server/build process setting the correct timestamp if generated dynamically.
             // For consistency across timezones, using UTC or a library like date-fns/Moment Timezone is recommended.
             // Let's stick to the local time interpretation for now as per the original code's likely intent.
-            const targetDate = new Date(2025, 6, 31, 23, 59, 59).getTime();
+            const targetDate = new Date(2025, 6, 30, 23, 59, 59).getTime();
 
             const daysEl = document.getElementById('days');
             const hoursEl = document.getElementById('hours');
